@@ -1,60 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='myApp' ng-controller='globalCtrl'>
     <head>
         <meta charset="utf-8" />
-        <title>Angular Web Application</title>
+        <title>{{title}}</title>
         <link rel="stylesheet" href="//necolas.github.io/normalize.css/3.0.1/normalize.css" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" />
     </head>
     <body>
-		<div class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="../" class="navbar-brand">Bootswatch</a>
-					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
+					<a class="navbar-brand" href="#">{{ title }}</a>
+					<ul>
 				</div>
-			<div class="navbar-collapse collapse" id="navbar-main">
-				<ul class="nav navbar-nav">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="themes">
-							<li><a href="../default/">Default</a></li>
-							<li class="divider"></li>
-						</ul>
-					</li>
-					<li>
-						<a href="../help/">Help</a>
-					</li>
-					<li>
-						<a href="http://news.bootswatch.com">Blog</a>
-					</li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="download">
-							<li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-							<li><a href="./bootstrap.css">bootstrap.css</a></li>
-							<li class="divider"></li>
-							<li><a href="./variables.less">variables.less</a></li>
-							<li><a href="./bootswatch.less">bootswatch.less</a></li>
-						</ul>
-					</li>
-				</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-			<li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-			<li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
-			</ul>
-
+				<div class="navbar-collapse collapse navbar-responsive-collapse">
+					<ul class="nav navbar-nav">
+						<li ng-repeat='app in apps' ng-class='{active: path == app.value}'><a href='#{{app.value}}'>{{app.name}}</a></li>
+					</ul>
+				</div>
 			</div>
-			</div>
+		</div>
+		<div ng-view>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-route.min.js"></script>
+		<script src="/Resource/js/AngularJS/app.js"></script>
+		<script src="/Resource/js/AngularJS/controllers.js"></script>
+		<script src="/Resource/js/AngularJS/services.js"></script>
+		<script src="/Resource/js/AngularJS/filters.js"></script>
+		<script src="/Resource/js/AngularJS/directives.js"></script>
+		<script src="/Resource/js/yahooFinance.js"></script>
     </body>
 </html>
