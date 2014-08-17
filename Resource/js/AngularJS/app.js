@@ -2,6 +2,7 @@
 
 angular.module('myApp', [
 	'ngRoute',
+	'ngProgress',
 	'myApp.controllers'
 ]).config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
